@@ -1,0 +1,14 @@
+Sign In
+<%= form_with url: sign_in_path do |form| %>
+  <div>
+    <%= form.label :email %><br>
+    <%= form.email_field :email, autocomplete: "email", required: true, placeholder: "Email" %>
+  </div>
+  <div>
+    <%= form.label :password %><br>
+    <%= form.password_field :password, autocomplete: "current-password", required: true, placeholder: "Password" %>
+  </div>
+  <div>
+    <%= form.submit "Sign In" %>
+  </div>
+<% end %>

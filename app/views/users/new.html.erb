@@ -1,0 +1,19 @@
+Try it free
+<%= form_with model: @user, url: sign_up_path do |form| %>
+  <div>
+    <%= form.label :email %><br>
+    <%= form.email_field :email, value: @user.email, autocomplete: "email", required: true, autofocus: true, placeholder: "Email" %>
+  </div>
+  <div>
+    <%= form.label :password %><br>
+    <%= form.password_field :password, autocomplete: "new-password", required: true, placeholder: "Password" %>
+  </div>
+  <div>
+    <%= form.label :password, "Confirm Password" %><br>
+    <%= form.password_field :password, autocomplete: "new-password", required: true, placeholder: "Confirm Password" %>
+  </div>
+  <div>
+    <%= form.submit "Sign Up" %>
+  </div>
+<% end %>
+
