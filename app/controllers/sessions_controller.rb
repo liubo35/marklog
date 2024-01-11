@@ -15,6 +15,6 @@ class SessionsController < ApplicationController
 
   def destroy
     cookies.delete :marklog_session_id
-    redirect_to root_path, notice: "Logged out"
+    redirect_to root_path, notice: "Signed out successfully"
   end
 end
