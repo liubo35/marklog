@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      cookies.signed[:marklog_session_id] = { value: @user.id, expires: 1.hour }
+      session[:user_id]
       redirect_to app_path, notice: "Signed up successfully"
     else
       render :new, status: :unprocessable_entity

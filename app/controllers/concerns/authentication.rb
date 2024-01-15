@@ -8,7 +8,7 @@ module Authentication
   private
 
   def authenticate
-    if (authenticated_user = User.find_by(id: cookies.signed[:marklog_session_id]))
+    if (authenticated_user = User.find_by(id: session[:user_id]))
       Current.user = authenticated_user
     else
       redirect_to sign_in_path

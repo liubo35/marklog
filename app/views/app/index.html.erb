@@ -2,3 +2,5 @@
   <%= "Logged in as #{Current.user.email}" %>
 </div>
 <%= link_to 'Log Out', sign_out_path, data: { turbo_method: :delete } %>
+<br>
+<%= debug session %>

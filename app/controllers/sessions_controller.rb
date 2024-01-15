@@ -6,7 +6,8 @@ class SessionsController < ApplicationController
 
   def create
     if (user = User.authenticate_by(email: params[:email], password: params[:password]))
-      cookies.signed[:marklog_session_id] = { value: user.id, expires: 1.hour }
+      session[:user_id] = user.id
+
       redirect_to app_path, notice: "Signed in successfully"
     else
       render :new, status: :unprocessable_entity
@@ -14,7 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    cookies.delete :marklog_session_id
+    reset_session
     redirect_to root_path, notice: "Signed out successfully"
   end
 end
